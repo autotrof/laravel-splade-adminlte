@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GeneralController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,8 +15,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware(['splade'])->group(function () {
-    Route::get('/', fn () => view('home'))->name('home');
-    Route::get('/docs', fn () => view('docs'))->name('docs');
+    Route::get('/', [GeneralController::class, 'index'])->name('home');
+    Route::get('/docs', [GeneralController::class, 'docs'])->name('docs');
+    Route::post('/docs', [GeneralController::class, 'docsSubmit'])->name('docs-submit');
 
     // Registers routes to support the interactive components...
     Route::spladeWithVueBridge();
