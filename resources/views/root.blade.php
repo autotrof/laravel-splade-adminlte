@@ -15,11 +15,11 @@
 
         <script src="{{ secure_url('') }}/plugins/jquery/jquery.min.js"></script>
         <!-- jQuery UI 1.11.4 -->
-        <script src="{{ secure_url('') }}/plugins/jquery-ui/jquery-ui.min.js"></script>
+        {{-- <script src="{{ secure_url('') }}/plugins/jquery-ui/jquery-ui.min.js"></script> --}}
         <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-        <script>
+        {{-- <script>
         $.widget.bridge('uibutton', $.ui.button)
-        </script>
+        </script> --}}
         <!-- Bootstrap 4 -->
         <script src="{{ secure_url('') }}/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
         <!-- daterangepicker -->
