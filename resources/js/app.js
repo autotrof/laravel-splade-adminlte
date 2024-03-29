@@ -10,13 +10,15 @@ import { renderSpladeApp, SpladePlugin } from "@protonemedia/laravel-splade";
 
 const el = document.getElementById("app");
 
-createApp({
-    render: renderSpladeApp({ el })
-})
+const app = createApp({
+        render: renderSpladeApp({ el })
+    })
     .use(SpladePlugin, {
         "max_keep_alive": 10,
         "transform_anchors": false,
         "progress_bar": true,
         "view_transitions": true,
-    })
-    .mount(el);
+    });
+
+app.config.compilerOptions.isCustomElement = tag => tag.startsWith('ion-')
+app.mount(el)
