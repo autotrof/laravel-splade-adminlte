@@ -11,11 +11,11 @@ export default ({ mode }) => {
             host: true,
             hmr: {
                 clientPort: 7998,
-                host: 'test2.asahskill.com'
+                host: process.env.VITE_APP_DOMAIN
             },
             https: {
                 key: fs.readFileSync(process.env.VITE_SSL_PRIVATE_KEY),
-                cert: fs.readFileSync(process.env.VITE_SSL_CERT),
+                cert: fs.readFileSync(process.env.VITE_SSL_CERT)
             },
             watch: {
                 ignored: [

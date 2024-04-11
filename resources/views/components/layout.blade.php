@@ -44,3 +44,10 @@
         </div>
     </footer>
 </div>
+
+<script>
+    Echo.channel(`admin-only`)
+    .listen('OrderShipmentStatusUpdated', (e) => {
+        console.log(e.order.name);
+    });
+</script>
