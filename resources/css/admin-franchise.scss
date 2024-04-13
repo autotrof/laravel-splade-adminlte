@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback');
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
+@import 'admin-lte/plugins/icheck-bootstrap/icheck-bootstrap.min.css';
+@import 'admin-lte/dist/css/alt/adminlte.components.min.css';
+@import 'admin-lte/dist/css/alt/adminlte.core.min.css';
+@import 'admin-lte/dist/css/alt/adminlte.extra-components.min.css';
+@import 'admin-lte/dist/css/alt/adminlte.light.min.css';
+@import 'admin-lte/plugins/overlayScrollbars/css/OverlayScrollbars.min.css';
+
+@config "../../tailwind-admin-center.config.js";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+aside nav ul.nav li.nav-item a {
+    display: flex;
+    align-items: center;
+    ion-icon {
+        margin-right: 10px;
+    }
+}

@@ -1,8 +1,5 @@
-import "./bootstrap";
-import 'admin-lte/plugins/icheck-bootstrap/icheck-bootstrap.min.css';
-import 'admin-lte/dist/css/adminlte.css';
-import 'admin-lte/plugins/overlayScrollbars/css/OverlayScrollbars.min.css';
-import "../css/app.scss";
+import "./bootstrap-frontend-center";
+import "../css/frontend-center.scss";
 import "@protonemedia/laravel-splade/dist/style.css";
 
 import { createApp } from "vue/dist/vue.esm-bundler.js";

@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use ProtoneMedia\Splade\Facades\Splade;
 use ProtoneMedia\Splade\Facades\Toast;
 
 class GeneralController extends Controller
 {
     public function index()
     {
+        Splade::setRootView('admin-layout');
         return view('home');
     }
 

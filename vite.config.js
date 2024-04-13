@@ -3,6 +3,7 @@ import laravel from "laravel-vite-plugin";
 import vue from "@vitejs/plugin-vue";
 import fs from 'fs';
 import path from 'path';
+import tailwind from 'tailwindcss';
 
 export default ({ mode }) => {
     process.env = {...process.env, ...loadEnv(mode, process.cwd())};
@@ -10,7 +11,7 @@ export default ({ mode }) => {
         server: {
             host: true,
             hmr: {
-                clientPort: 7998,
+                clientPort: process.env.VITE_CLIENT_PORT,
                 host: process.env.VITE_APP_DOMAIN
             },
             https: {
@@ -26,7 +27,11 @@ export default ({ mode }) => {
         },
         plugins: [
             laravel({
-                input: "resources/js/app.js",
+                input: [
+                    "resources/js/admin-center.js",
+                    "resources/js/admin-franchise.js",
+                    "resources/js/frontend-center.js"
+                ],
                 ssr: "resources/js/ssr.js",
                 refresh: true,
             }),
@@ -39,6 +44,18 @@ export default ({ mode }) => {
                 },
             }),
         ],
+        css: {
+            postcss: {
+                plugins: [
+                    tailwind({
+                        config: './tailwind-admin-center.config'
+                    }),
+                    tailwind({
+                        config: './tailwind-frontend-center.config'
+                    })
+                ]
+            }
+        },
         ssr: {
             noExternal: ["vue", "@protonemedia/laravel-splade"]
         },
