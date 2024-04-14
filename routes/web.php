@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\GeneralController;
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,6 +19,12 @@ Route::middleware(['splade'])->group(function () {
     Route::get('/', [GeneralController::class, 'index'])->name('home');
     Route::get('/docs', [GeneralController::class, 'docs'])->name('docs');
     Route::post('/docs', [GeneralController::class, 'docsSubmit'])->name('docs-submit');
+
+    Route::get('/login', [AuthController::class, 'loginPage'])->name('login');
+
+    Route::prefix('admin')->middleware('auth')->group(function () {
+
+    });
 
     // Registers routes to support the interactive components...
     Route::spladeWithVueBridge();

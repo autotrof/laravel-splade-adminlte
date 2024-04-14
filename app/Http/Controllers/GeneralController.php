@@ -10,12 +10,13 @@ class GeneralController extends Controller
 {
     public function index()
     {
-        Splade::setRootView('admin-layout');
+        Splade::setRootView('admin-root');
         return view('home');
     }
 
     public function docs()
     {
+        Splade::setRootView('admin-root');
         return view('docs');
     }
 
